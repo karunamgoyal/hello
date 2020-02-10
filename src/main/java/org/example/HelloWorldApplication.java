@@ -32,9 +32,11 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     public void run( final HelloWorldConfiguration configuration,
                      final Environment environment) throws Exception {
         LOGGER.info("Method HelloWorldApplication#run called");
+        System.out.println("Hello World");
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataStoreFactory(),"mysql");
         environment.jersey().register(new ContactResources(jdbi));
+
     }
 
 }
